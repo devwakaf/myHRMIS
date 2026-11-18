@@ -1,0 +1,14 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    # spec-00 A10: level 6 at M0, raise to 8 by M4.
+    level: 6
+    paths:
+        - app
+        - database/seeders
+        - tests/Support
+    tmpDir: storage/framework/phpstan
+    # Relations documented as non-null may still be null at runtime (org scope,
+    # deleted rows), so defensive nullsafe access is kept.
+    treatPhpDocTypesAsCertain: false
